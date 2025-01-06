@@ -29,16 +29,10 @@ class Ssb2ApplicationTests {
     @Test
     void testJpa() {
 
-        Optional<Question> oq = questionRepository.findById(2);
-        assertTrue(oq.isPresent());
-        Question q = oq.get();
-
-        Answer a = new Answer();
-        a.setContent("네 자동으로 생성됩니다.");
-        a.setQuestion(q); //해당 질문에 대한 답변 설정
-        a.setCreateTime(LocalDateTime.now());
-        this.answerRepository.save(a);
-
+    Optional<Answer> oa = answerRepository.findById(1);
+        assertTrue(oa.isPresent());
+        Answer a = oa.get();
+        assertEquals(2, a.getQuestion().getId());
    }
 }
 
