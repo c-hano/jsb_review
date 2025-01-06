@@ -25,6 +25,8 @@ public class Question {
     private LocalDateTime createTime;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
+    //mappedBy = "question" : 종속 클래스 Answer에서 연결된 fr 의 값을 question으로 설정
+    //casecade = CascadeType.REMOVE : Question이 지워지면 연결된 Answer도 지워진다.
     private List<Answer> answerList;
 
 }
