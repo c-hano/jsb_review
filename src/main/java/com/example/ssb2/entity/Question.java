@@ -3,7 +3,6 @@ package com.example.ssb2.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class QuestionEntity {
+public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +25,6 @@ public class QuestionEntity {
     private LocalDateTime createTime;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
-    private List<AnswerEntity> answerList;
+    private List<Answer> answerList;
 
 }

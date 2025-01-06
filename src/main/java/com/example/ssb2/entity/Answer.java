@@ -3,14 +3,13 @@ package com.example.ssb2.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
-public class AnswerEntity {
+public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +21,6 @@ public class AnswerEntity {
     private LocalDateTime createTime;
 
     @ManyToOne
-    private QuestionEntity question;
+    private Question question;
 
 }
