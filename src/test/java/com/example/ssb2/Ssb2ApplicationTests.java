@@ -1,15 +1,15 @@
 package com.example.ssb2;
 
-import com.example.ssb2.entity.Answer;
-import com.example.ssb2.entity.Question;
-import com.example.ssb2.repository.AnswerRepository;
-import com.example.ssb2.repository.QuestionRepository;
+import com.example.ssb2.answer.Answer;
+import com.example.ssb2.question.Question;
+import com.example.ssb2.answer.AnswerRepository;
+import com.example.ssb2.question.QuestionRepository;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,13 +27,19 @@ class Ssb2ApplicationTests {
     //@Autowired는 생성자가 선언이 필요없다
 
     @Test
+    @Transactional
     void testJpa() {
+        Optional<Question> oq = questionRepository.findById(2);
+        assertTrue(oq.isPresent());
+        Question q = oq.get();
 
-    Optional<Answer> oa = answerRepository.findById(1);
-        assertTrue(oa.isPresent());
-        Answer a = oa.get();
-        assertEquals(2, a.getQuestion().getId());
-   }
+        List<Answer> answerList = q.getAnswerList();
+
+        assertEquals(1, answerList.size());
+        assertEquals("네 자동으로 생성됩니다.", answerList.get(0).getContent());
+
+
+    }
 }
 
 

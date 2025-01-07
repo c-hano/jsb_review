@@ -1,6 +1,5 @@
-package com.example.ssb2.repository;
+package com.example.ssb2.question;
 
-import com.example.ssb2.entity.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

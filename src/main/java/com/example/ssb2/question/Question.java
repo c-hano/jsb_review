@@ -1,5 +1,6 @@
-package com.example.ssb2.entity;
+package com.example.ssb2.question;
 
+import com.example.ssb2.answer.Answer;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
